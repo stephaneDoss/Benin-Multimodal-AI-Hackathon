@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog Post - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body style="min-height: 100vh">
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">Doublage intelligent</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Aide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="fw-bolder mb-4 mt-5">L'outil qui vous permet de gagner en audience</h2>
+                    <!-- Langue de la vidéo dropdown-->
+                    <div class="fw-bold">
+                        Langue de la vidéo
+                        <select class="form-select" id="langueVideoSelect">
+                            <option value="francais" selected>Français</option>
+                            <option value="anglais">Anglais</option>
+                            <option value="espagnol">Espagnol</option>
+                        </select>
+                    </div>
+                    <!-- Langue de doublage dropdown-->
+                    <div class="fw-bold">
+                        Langue de doublage
+                        <select class="form-select" id="langueDoublageSelect">
+                            <option value="fon" selected>Fon</option>
+                            <option value="dendi">Dendi</option>
+                            <option value="yoruba">Yoruba</option>
+                        </select>
+                    </div>
+                    <!-- Récapitulatif de sélection avec statut de l'opération-->
+                    <div class="fw-bold">
+                        Récapitulatif de sélection :
+                        <button class="btn btn-primary" id="operationStatusBtn" type="button" onclick="updateOperationStatus()">
+                            Votre choix :
+                            <span class="badge text-bg-secondary" id="operationStatusSpan">Français vers Fon</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Section à droite (Side widget)-->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">Sélectionner une source</div>
+                        <div class="card-body">
+                            <!-- Utiliser des onglets pour choisir la source du fichier audio et l'emplacement pour charger l'audio-->
+                            <div class="nav nav-tabs mb-3">
+                                <button class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#upload" aria-selected="true">Sur cet appareil</button>
+                                <button class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#youtube-upload" aria-selected="false">YouTube</button>
+                                <button class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#tiktok-upload" aria-selected="false">TikTok</button>
+                            </div>
+                            <div class="tab-content">
+                                <!-- Onglet "Fichier local"-->
+                                <div class="tab-pane fade show active" id="upload">
+                                    <form><input class="form-control" type="file" accept="audio/*" /></form>
+                                </div>
+                                <!-- Onglet "YouTube"-->
+                                <div class="tab-pane fade" id="youtube-upload"><input class="form-control" type="text" placeholder="URL de la vidéo YouTube" /></div>
+                                <!-- Onglet "TikTok"-->
+                                <div class="tab-pane fade" id="tiktok-upload"><input class="form-control" type="text" placeholder="URL de la vidéo TikTok" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark fixed-bottom">
+            // Fixer le footer en bas de la page
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; 2024</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script>
+            function updateOperationStatus() {
+                var langueVideoSelect = document.getElementById('langueVideoSelect');
+                var langueDoublageSelect = document.getElementById('langueDoublageSelect');
+
+                var langueVideo = langueVideoSelect.options[langueVideoSelect.selectedIndex].text;
+                var langueDoublage = langueDoublageSelect.options[langueDoublageSelect.selectedIndex].text;
+                var operationReussie = true; // Remplacer par la logique réelle de l'opération
+
+                var operationStatusSpan = document.getElementById('operationStatusSpan');
+                operationStatusSpan.textContent = `${langueVideo} vers ${langueDoublage} (${operationReussie ? 'Opération réussie' : 'Opération échouée'})`;
+            }
+        </script>
+    </body>
+</html>

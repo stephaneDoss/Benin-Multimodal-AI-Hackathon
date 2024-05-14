@@ -1,0 +1,104 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+
+    title Blog Post - Start Bootstrap Template
+
+    // Favicon
+    link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+    // Core theme CSS (includes Bootstrap)
+    link(href='css/styles.css', rel='stylesheet')
+
+  body(style='min-height: 100vh;')
+
+    // Responsive navbar
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container
+        a.navbar-brand(href='#!') Doublage intelligent 
+        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+            li.nav-item
+              a.nav-link(href='#') Accueil
+            li.nav-item
+              a.nav-link(href='#!') Aide
+
+    // Page content
+    .container.mt-5
+      .row
+        .col-lg-8
+          h2.fw-bolder.mb-4.mt-5 L'outil qui vous permet de gagner en audience
+
+          // Langue de la vidéo dropdown
+          .fw-bold Langue de la vidéo
+            select#langueVideoSelect.form-select
+              option(value='francais', selected) Français
+              option(value='anglais') Anglais
+              option(value='espagnol') Espagnol
+
+          // Langue de doublage dropdown
+          .fw-bold Langue de doublage
+            select#langueDoublageSelect.form-select
+              option(value='fon', selected) Fon
+              option(value='dendi') Dendi
+              option(value='yoruba') Yoruba
+
+          // Récapitulatif de sélection avec statut de l'opération
+          .fw-bold 
+            button#operationStatusBtn.btn.btn-primary(type='button', onclick='updateOperationStatus()')
+              | Validez :
+              span#operationStatusSpan.badge.text-bg-secondary Français vers Fon
+
+        // Section à droite (Side widget)
+        .col-lg-4
+          .card.mb-4
+            .card-header
+              | Sélectionner une source
+            .card-body
+              // Utiliser des onglets pour choisir la source du fichier audio et l'emplacement pour charger l'audio
+              .nav.nav-tabs.mb-3
+                button.nav-link(type='button', data-bs-toggle='tab', data-bs-target='#upload', aria-selected='true') Sur cet appareil
+                button.nav-link(type='button', data-bs-toggle='tab', data-bs-target='#youtube-upload', aria-selected='false') YouTube
+                button.nav-link(type='button', data-bs-toggle='tab', data-bs-target='#tiktok-upload', aria-selected='false') TikTok
+
+              .tab-content
+                // Onglet "Fichier local"
+                #upload.tab-pane.fade.show.active
+                  form
+                    input.form-control(type='file', accept='audio/*')
+
+                // Onglet "YouTube"
+                #youtube-upload.tab-pane.fade
+                  input.form-control(type='text', placeholder='URL de la vidéo YouTube')
+
+                // Onglet "TikTok"
+                #tiktok-upload.tab-pane.fade
+                  input.form-control(type='text', placeholder='URL de la vidéo TikTok')
+
+    // Footer
+    footer.py-5.bg-dark.fixed-bottom // Fixer le footer en bas de la page
+      .container
+        p.m-0.text-center.text-white Copyright &copy; 2024
+
+    // Bootstrap core JS
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+
+    // Core theme JS
+    script.
+      function updateOperationStatus() {
+        var langueVideoSelect = document.getElementById('langueVideoSelect');
+        var langueDoublageSelect = document.getElementById('langueDoublageSelect');
+
+        var langueVideo = langueVideoSelect.options[langueVideoSelect.selectedIndex].text;
+        var langueDoublage = langueDoublageSelect.options[langueDoublageSelect.selectedIndex].text;
+        var operationReussie = true; // Remplacer par la logique réelle de l'opération
+
+        var operationStatusSpan = document.getElementById('operationStatusSpan');
+        operationStatusSpan.textContent = `${langueVideo} vers ${langueDoublage} (${operationReussie ? 'Opération réussie' : 'Opération échouée'})`;
+      }
