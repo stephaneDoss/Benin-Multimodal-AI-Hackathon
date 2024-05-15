@@ -1,0 +1,151 @@
+doctype html
+html(lang='fr')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title PolyGlotBénin - Faire un doublage
+
+    // Favicon
+    link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+    // Core theme CSS (includes Bootstrap)
+    link(rel='stylesheet', href='css/styles.css')
+
+  body
+    // Navbar
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        a.navbar-brand(href='index.html')
+          img(src='assets/logo.png', alt='PolyGlotBénin')
+        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item
+              a.nav-link(href='#') Connexion
+            li.nav-item
+              a.nav-link.btn.btn-primary.text-white(href='#') Inscription
+
+    .d-flex
+      // Sidebar
+      .flex-column.flex-shrink-0.p-3.bg-light.sidebar
+        h4 PolyGlotBénin
+        ul.nav.nav-pills.flex-column.mb-auto
+          li.nav-item
+            a.nav-link.active(href='doublage.html')
+              i.bi.bi-film-fill.me-2 Doublage
+          li.nav-item
+            a.nav-link(href='#')
+              i.bi.bi-clock-history.me-2 Historique
+          li.nav-item
+            a.nav-link(href='#')
+              i.bi.bi-mic-fill.me-2 Voix
+          li.nav-item
+            a.nav-link(href='#')
+              i.bi.bi-credit-card-2-front-fill.me-2 Paiement
+          li.nav-item
+            a.nav-link(href='#')
+              i.bi.bi-graph-up-arrow.me-2 Reports
+        footer
+          a.nav-link(href='#')
+            i.bi.bi-gear-fill.me-2 Paramètres
+
+      // Main content
+      .container-fluid.mt-5
+        .row
+          .col
+            h1 Faire un doublage
+
+            // Dropdowns for languages
+            .row.mb-4
+              .col-md-6
+                .form-group
+                  label Langue de la vidéo
+                  button#langueVideoDropdown.btn.btn-outline-secondary.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                    | Langue source
+                  ul.dropdown-menu
+                    li
+                      a.dropdown-item(href='#', onclick='updateLangueVideo("Français")') Français
+                    li
+                      a.dropdown-item(href='#', onclick='updateLangueVideo("Anglais")') Anglais
+                    li
+                      a.dropdown-item(href='#', onclick='updateLangueVideo("Espagnol")') Espagnol
+              .col-md-6
+                .form-group
+                  label Langue de doublage
+                  button#langueDoublageDropdown.btn.btn-outline-secondary.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                    | Langue de doublage
+                  ul.dropdown-menu
+                    li
+                      a.dropdown-item(href='#', onclick='updateLangueDoublage("Fon")') Fon
+                    li
+                      a.dropdown-item(href='#', onclick='updateLangueDoublage("Dendi")') Dendi
+                    li
+                      a.dropdown-item(href='#', onclick='updateLangueDoublage("Yoruba")') Yoruba
+
+            // Source selection
+            .form-group
+              label Sélectionnez une source
+              .btn-group.mb-3
+                button#uploadButton.btn.btn-outline-secondary(type='button', onclick='selectSource("upload")') Upload
+                button#youtubeButton.btn.btn-outline-secondary(type='button', onclick='selectSource("youtube")') YouTube
+                button#tiktokButton.btn.btn-outline-secondary(type='button', onclick='selectSource("tiktok")') TikTok
+                button#vimeoButton.btn.btn-outline-secondary(type='button', onclick='selectSource("vimeo")') Viméo
+
+              input#sourceInput.form-control(type='text', placeholder='https://www.youtube.com/watch?v=XYLgwxVbwE8', style='display:none;')
+              input#fileInput.form-control(type='file', accept='video/*', style='display:none;')
+
+              .upload-area.border.border-dashed.p-4.text-center
+                img(src='assets/upload.png', alt='Upload Icon', class='mb-2')
+                p Cliquez pour rajouter une nouvelle vidéo
+                small.text-muted Taille max du fichier: 100MB
+
+            // Magic button
+            button.btn.btn-success.btn-lg.mt-3 Doublage magic
+
+    // Bootstrap core JS
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+
+    // Core theme JS
+    script(src='js/scripts.js')
+    script.
+      function updateLangueVideo(langue) {
+        var langueVideoDropdown = document.getElementById('langueVideoDropdown');
+        langueVideoDropdown.textContent = langue;
+      }
+
+      function updateLangueDoublage(langue) {
+        var langueDoublageDropdown = document.getElementById('langueDoublageDropdown');
+        langueDoublageDropdown.textContent = langue;
+      }
+
+      function selectSource(source) {
+        var uploadButton = document.getElementById('uploadButton');
+        var youtubeButton = document.getElementById('youtubeButton');
+        var tiktokButton = document.getElementById('tiktokButton');
+        var vimeoButton = document.getElementById('vimeoButton');
+        var sourceInput = document.getElementById('sourceInput');
+        var fileInput = document.getElementById('fileInput');
+
+        uploadButton.classList.remove('btn-primary');
+        youtubeButton.classList.remove('btn-primary');
+        tiktokButton.classList.remove('btn-primary');
+        vimeoButton.classList.remove('btn-primary');
+
+        if (source === 'upload') {
+          uploadButton.classList.add('btn-primary');
+          fileInput.style.display = 'block';
+          sourceInput.style.display = 'none';
+        } else {
+          if (source === 'youtube') {
+            youtubeButton.classList.add('btn-primary');
+          } else if (source === 'tiktok') {
+            tiktokButton.classList.add('btn-primary');
+          } else if (source === 'vimeo') {
+            vimeoButton.classList.add('btn-primary');
+          }
+          fileInput.style.display = 'none';
+          sourceInput.style.display = 'block';
+          sourceInput.placeholder = 'https://www.' + source + '.com/watch?v=XYLgwxVbwE8';
+        }
+      }

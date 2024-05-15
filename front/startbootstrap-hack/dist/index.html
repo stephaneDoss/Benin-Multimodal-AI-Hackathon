@@ -1,107 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Blog Post - Start Bootstrap Template</title>
+        <title>PolyGlotBénin - Landing Page</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body style="min-height: 100vh">
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <body>
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#!">Doublage intelligent</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Aide</a></li>
+                <a class="navbar-brand" href="index.html"><img src="assets/logo.png" alt="PolyGlotBénin" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Connexion</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="#">Inscription</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Page content-->
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h2 class="fw-bolder mb-4 mt-5">L'outil qui vous permet de gagner en audience</h2>
-                    <!-- Langue de la vidéo dropdown-->
-                    <div class="fw-bold">
-                        Langue de la vidéo
-                        <select class="form-select" id="langueVideoSelect">
-                            <option value="francais" selected>Français</option>
-                            <option value="anglais">Anglais</option>
-                            <option value="espagnol">Espagnol</option>
-                        </select>
+        <!-- Header Section-->
+        <header>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1>PolyGlotBénin</h1>
+                        <p>Doublage de vidéos simplifié par l'IA. Faites le doublage de vos vidéos dans une langue étrangère et une de nos 3 langues locales !</p>
+                        <a class="btn btn-success" href="index.html">Inscription</a>
                     </div>
-                    <!-- Langue de doublage dropdown-->
-                    <div class="fw-bold">
-                        Langue de doublage
-                        <select class="form-select" id="langueDoublageSelect">
-                            <option value="fon" selected>Fon</option>
-                            <option value="dendi">Dendi</option>
-                            <option value="yoruba">Yoruba</option>
-                        </select>
-                    </div>
-                    <!-- Récapitulatif de sélection avec statut de l'opération-->
-                    <div class="fw-bold">
-                        <button class="btn btn-primary" id="operationStatusBtn" type="button" onclick="updateOperationStatus()">
-                            Validez :
-                            <span class="badge text-bg-secondary" id="operationStatusSpan">Français vers Fon</span>
-                        </button>
-                    </div>
+                    <div class="col-md-6"><img class="img-fluid" src="assets/screen.png" alt="Screenshot" /></div>
                 </div>
-                <!-- Section à droite (Side widget)-->
-                <div class="col-lg-4">
-                    <div class="card mb-4">
-                        <div class="card-header">Sélectionner une source</div>
-                        <div class="card-body">
-                            <!-- Utiliser des onglets pour choisir la source du fichier audio et l'emplacement pour charger l'audio-->
-                            <div class="nav nav-tabs mb-3">
-                                <button class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#upload" aria-selected="true">Sur cet appareil</button>
-                                <button class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#youtube-upload" aria-selected="false">YouTube</button>
-                                <button class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#tiktok-upload" aria-selected="false">TikTok</button>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main>
+            <div class="container">
+                <div class="row text-center">
+                    <h2>Débloquez la puissance de PolyGlotBénin</h2>
+                    <p>Choisissez un plan qui vous convient</p>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Gratuit</h3>
+                                <p>$0 / mois</p>
+                                <ul>
+                                    <li>Accès limité aux fonctionnalités</li>
+                                    <li>Doublage vidéo simple</li>
+                                    <li>Doublage vidéo en 3 langues locales</li>
+                                    <li>Assistance de base</li>
+                                </ul>
+                                <a class="btn btn-outline-primary" href="doublage.html">Commencer maintenant</a>
                             </div>
-                            <div class="tab-content">
-                                <!-- Onglet "Fichier local"-->
-                                <div class="tab-pane fade show active" id="upload">
-                                    <form><input class="form-control" type="file" accept="audio/*" /></form>
-                                </div>
-                                <!-- Onglet "YouTube"-->
-                                <div class="tab-pane fade" id="youtube-upload"><input class="form-control" type="text" placeholder="URL de la vidéo YouTube" /></div>
-                                <!-- Onglet "TikTok"-->
-                                <div class="tab-pane fade" id="tiktok-upload"><input class="form-control" type="text" placeholder="URL de la vidéo TikTok" /></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-dark text-white">
+                            <div class="card-body">
+                                <h3>Professionnel</h3>
+                                <p>$25 / mois</p>
+                                <ul>
+                                    <li>Accès complet aux fonctionnalités</li>
+                                    <li>Doublage vidéo avancé</li>
+                                    <li>Doublage vidéo en toutes langues disponibles</li>
+                                    <li>Support prioritaire</li>
+                                </ul>
+                                <a class="btn btn-primary" href="doublage.html">Commencer maintenant</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+        <!-- Team Section-->
+        <section class="bg-light py-5">
+            <div class="container text-center">
+                <h2>PolyGlotBénin équipe</h2>
+                <p>Notre équipe d'expert travaille chaque jour dans le but de vous offrir un service de qualité. Restez donc en contact avec nous.</p>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-2"><img class="img-fluid rounded-circle" src="assets/free.png" alt="Team member" /></div>
+                    <div class="col-md-2"><img class="img-fluid rounded-circle" src="assets/free.png" alt="Team member" /></div>
+                    <div class="col-md-2"><img class="img-fluid rounded-circle" src="assets/free.png" alt="Team member" /></div>
+                </div>
+                <div class="mt-4">
+                    <div class="col-md-4 mx-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <img class="img-fluid rounded-circle" src="assets/free.png" alt="CEO" />
+                                <h3>Jerry Wenco</h3>
+                                <p>CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Footer-->
-        <footer class="py-5 bg-dark fixed-bottom">
-            // Fixer le footer en bas de la page
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; 2024</p></div>
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h5>PolyGlotBénin</h5>
+                        <p>Nous vous donnons la possibilité de faire des doublages de qualité dans une des langues locales du Bénin.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Company</h5>
+                        <ul class="list-unstyled">
+                            <li>About</li>
+                            <li>Features</li>
+                            <li>Works</li>
+                            <li>Career</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Newsletter</h5>
+                        <form>
+                            <input class="form-control" type="email" placeholder="Votre email" />
+                            <button class="btn btn-primary mt-2" type="submit">S'inscrire maintenant</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center mt-4"><p>© Copyright 2024. All rights reserved by PolyGlotBénin</p></div>
+            </div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script>
-            function updateOperationStatus() {
-                var langueVideoSelect = document.getElementById('langueVideoSelect');
-                var langueDoublageSelect = document.getElementById('langueDoublageSelect');
-
-                var langueVideo = langueVideoSelect.options[langueVideoSelect.selectedIndex].text;
-                var langueDoublage = langueDoublageSelect.options[langueDoublageSelect.selectedIndex].text;
-                var operationReussie = true; // Remplacer par la logique réelle de l'opération
-
-                var operationStatusSpan = document.getElementById('operationStatusSpan');
-                operationStatusSpan.textContent = `${langueVideo} vers ${langueDoublage} (${operationReussie ? 'Opération réussie' : 'Opération échouée'})`;
-            }
-        </script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
