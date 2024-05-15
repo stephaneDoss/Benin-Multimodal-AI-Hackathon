@@ -43,7 +43,7 @@ html(lang='fr')
         .row.text-center
           h2 Débloquez la puissance de PolyGlotBénin
           p Choisissez un plan qui vous convient
-          
+
           .col-md-6
             .card
               .card-body
@@ -68,10 +68,55 @@ html(lang='fr')
                   li Support prioritaire
                 a.btn.btn-primary(href='#') Commencer maintenant
 
-    // Footer
-    footer.bg-dark.text-white
+    // Team Section
+    section.bg-light.py-5
       .container.text-center
-        p PolyGlotBénin équipe
-        p Notre équipe d'expert travaille chaque jour dans le but de rendre votre expérience optimale. Restez connecté avec nous pour en savoir plus.
-        p Jerry Wenco, CEO
-        img(src='assets/i.jpg', alt='Team', class='img-fluid rounded-circle')
+        h2 PolyGlotBénin équipe
+        p Notre équipe d'expert travaille chaque jour dans le but de vous offrir un service de qualité. Restez donc en contact avec nous.
+        .row.justify-content-center.mt-4
+          .col-md-2
+            img.img-fluid.rounded-circle(src='assets/free.png', alt='Team member')
+          .col-md-2
+            img.img-fluid.rounded-circle(src='assets/free.png', alt='Team member')
+          .col-md-2
+            img.img-fluid.rounded-circle(src='assets/free.png', alt='Team member')
+          .col-md-2
+            img.img-fluid.rounded-circle(src='assets/free.png', alt='Team member')
+          .col-md-2
+            img.img-fluid.rounded-circle(src='assets/free.png', alt='Team member')
+        .mt-4
+          .col-md-4.mx-auto
+            .card
+              .card-body
+                img.img-fluid.rounded-circle(src='assets/free.png', alt='CEO')
+                h3 Jerry Wenco
+                p CEO
+
+    // Footer
+    footer.bg-dark.text-white.py-4
+      .container
+        .row.text-center
+          .col-md-4
+            h5 PolyGlotBénin
+            p Nous vous donnons la possibilité de faire des doublages de qualité dans une des langues locales du Bénin.
+          .col-md-4
+            h5 Company
+            ul.list-unstyled
+              li About
+              li Features
+              li Works
+              li Career
+          .col-md-4
+            h5 Newsletter
+            form
+              input.form-control(type='email', placeholder='Votre email')
+              button.btn.btn-primary.mt-2(type='submit') S'inscrire maintenant
+
+        .text-center.mt-4
+          p © Copyright 2024. All rights reserved by PolyGlotBénin
+
+    // Bootstrap core JS
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+
+    // Core theme JS
+    script(src='js/scripts.js')
