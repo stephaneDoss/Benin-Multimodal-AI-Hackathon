@@ -1,12 +1,9 @@
 doctype html
-html(lang='en')
+html(lang='fr')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(name='description', content='')
-    meta(name='author', content='')
-
-    title Blog Post - Start Bootstrap Template
+    title PolyGlotBénin - Landing Page
 
     // Favicon
     link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
@@ -14,91 +11,67 @@ html(lang='en')
     // Core theme CSS (includes Bootstrap)
     link(href='css/styles.css', rel='stylesheet')
 
-  body(style='min-height: 100vh;')
-
-    // Responsive navbar
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  body
+    // Navbar
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .container
-        a.navbar-brand(href='#!') Doublage intelligent 
-        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        a.navbar-brand(href='#')
+          img(src='assets/logo.png', alt='PolyGlotBénin')
+        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
-        #navbarSupportedContent.collapse.navbar-collapse
-          ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
             li.nav-item
-              a.nav-link(href='#') Accueil
+              a.nav-link(href='#') Connexion
             li.nav-item
-              a.nav-link(href='#!') Aide
+              a.nav-link.btn.btn-primary.text-white(href='#') Inscription
 
-    // Page content
-    .container.mt-5
-      .row
-        .col-lg-8
-          h2.fw-bolder.mb-4.mt-5 L'outil qui vous permet de gagner en audience
+    // Header Section
+    header
+      .container
+        .row.align-items-center
+          .col-md-6
+            h1 PolyGlotBénin
+            p Doublage de vidéos simplifié par l'IA. Faites le doublage de vos vidéos dans une langue étrangère et une de nos 3 langues locales !
+            a.btn.btn-success(href='#') Inscription
+          .col-md-6
+            img.img-fluid(src='assets/screen.png', alt='Screenshot')
 
-          // Langue de la vidéo dropdown
-          .fw-bold Langue de la vidéo
-            select#langueVideoSelect.form-select
-              option(value='francais', selected) Français
-              option(value='anglais') Anglais
-              option(value='espagnol') Espagnol
+    // Main Content
+    main
+      .container
+        .row.text-center
+          h2 Débloquez la puissance de PolyGlotBénin
+          p Choisissez un plan qui vous convient
+          
+          .col-md-6
+            .card
+              .card-body
+                h3 Gratuit
+                p $0 / mois
+                ul
+                  li Accès limité aux fonctionnalités
+                  li Doublage vidéo simple
+                  li Doublage vidéo en 3 langues locales
+                  li Assistance de base
+                a.btn.btn-outline-primary(href='#') Commencer maintenant
 
-          // Langue de doublage dropdown
-          .fw-bold Langue de doublage
-            select#langueDoublageSelect.form-select
-              option(value='fon', selected) Fon
-              option(value='dendi') Dendi
-              option(value='yoruba') Yoruba
-
-          // Récapitulatif de sélection avec statut de l'opération
-          .fw-bold 
-            button#operationStatusBtn.btn.btn-primary(type='button', onclick='updateOperationStatus()')
-              | Validez :
-              span#operationStatusSpan.badge.text-bg-secondary Français vers Fon
-
-        // Section à droite (Side widget)
-        .col-lg-4
-          .card.mb-4
-            .card-header
-              | Sélectionner une source
-            .card-body
-              // Utiliser des onglets pour choisir la source du fichier audio et l'emplacement pour charger l'audio
-              .nav.nav-tabs.mb-3
-                button.nav-link(type='button', data-bs-toggle='tab', data-bs-target='#upload', aria-selected='true') Sur cet appareil
-                button.nav-link(type='button', data-bs-toggle='tab', data-bs-target='#youtube-upload', aria-selected='false') YouTube
-                button.nav-link(type='button', data-bs-toggle='tab', data-bs-target='#tiktok-upload', aria-selected='false') TikTok
-
-              .tab-content
-                // Onglet "Fichier local"
-                #upload.tab-pane.fade.show.active
-                  form
-                    input.form-control(type='file', accept='audio/*')
-
-                // Onglet "YouTube"
-                #youtube-upload.tab-pane.fade
-                  input.form-control(type='text', placeholder='URL de la vidéo YouTube')
-
-                // Onglet "TikTok"
-                #tiktok-upload.tab-pane.fade
-                  input.form-control(type='text', placeholder='URL de la vidéo TikTok')
+          .col-md-6
+            .card.bg-dark.text-white
+              .card-body
+                h3 Professionnel
+                p $25 / mois
+                ul
+                  li Accès complet aux fonctionnalités
+                  li Doublage vidéo avancé
+                  li Doublage vidéo en toutes langues disponibles
+                  li Support prioritaire
+                a.btn.btn-primary(href='#') Commencer maintenant
 
     // Footer
-    footer.py-5.bg-dark.fixed-bottom // Fixer le footer en bas de la page
-      .container
-        p.m-0.text-center.text-white Copyright &copy; 2024
-
-    // Bootstrap core JS
-    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
-
-    // Core theme JS
-    script.
-      function updateOperationStatus() {
-        var langueVideoSelect = document.getElementById('langueVideoSelect');
-        var langueDoublageSelect = document.getElementById('langueDoublageSelect');
-
-        var langueVideo = langueVideoSelect.options[langueVideoSelect.selectedIndex].text;
-        var langueDoublage = langueDoublageSelect.options[langueDoublageSelect.selectedIndex].text;
-        var operationReussie = true; // Remplacer par la logique réelle de l'opération
-
-        var operationStatusSpan = document.getElementById('operationStatusSpan');
-        operationStatusSpan.textContent = `${langueVideo} vers ${langueDoublage} (${operationReussie ? 'Opération réussie' : 'Opération échouée'})`;
-      }
+    footer.bg-dark.text-white
+      .container.text-center
+        p PolyGlotBénin équipe
+        p Notre équipe d'expert travaille chaque jour dans le but de rendre votre expérience optimale. Restez connecté avec nous pour en savoir plus.
+        p Jerry Wenco, CEO
+        img(src='assets/i.jpg', alt='Team', class='img-fluid rounded-circle')
